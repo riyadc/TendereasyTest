@@ -3,10 +3,11 @@
         <div class="col-md-offset-5 col-md-3">
             <div class="form-login">
                 <h4>Welcome back.</h4>
-                <input ng-model="vm.userName" type="text"  class="form-control input-sm chat-input" placeholder="username" />
+                <input ng-model="vm.userName" ng-class="{'invalid': vm.validationInfo.isSubmitted && !vm.userName}" type="text" class="form-control input-sm chat-input" placeholder="username" />
                 </br>
-                <input ng-model="vm.password" type="password"  class="form-control input-sm chat-input" placeholder="password" />
+                <input ng-model="vm.password" ng-class="{'invalid': vm.validationInfo.isSubmitted && !vm.password}" type="password"  class="form-control input-sm chat-input" placeholder="password" />
                 </br>
+                <div ng-if="vm.validationInfo.isSubmitted && !vm.validationInfo.isValidLogin" class="error-msg">The user name and password you entered don't match. </div>
                 <div class="wrapper">
             <span class="group-btn">     
                 <a ng-click="$event.$event.preventDefault();vm.signin()" class="btn btn-primary btn-md">login <i class="fa fa-sign-in"></i></a>

@@ -1,21 +1,50 @@
-<div>
+<div class="search-container">
+    <div class="user-info">Logged as: </div>
 
-</div>
-
-<div class="search-filter">
-    <div class="row">
-        <div class="cell">From</div>
-        <div class="cell"><select></select> </div>
-        <div class="cell">To</div>
-        <div class="cell"><select></select></div>
-    </div>
-    <div class="row">
-        <div class="cell">3</div>
-        <div class="cell">4</div>
-        <div class="cell">5</div>
-        <div class="cell">5</div>
-    </div>
-</div>
-        <div class="search-container">
-            <button>Search</button>
+    <div class="search-filter">
+        <div class="row">
+            <div class="cell">From</div>
+            <div class="cell">
+                <select ng-class="{'invalid': vm.validationInfo.isSubmitted && !vm.selectedFilters.fromCity}" class="form-control"
+                        ng-model="vm.selectedFilters.fromCity" ng-options="item.id as item.name for item in vm.cities">
+                    <option value="">Select From City</option>
+                </select>
+            </div>
+            <div class="cell center-align">To</div>
+            <div class="cell">
+                <select ng-class="{'invalid': vm.validationInfo.isSubmitted && !vm.selectedFilters.toCity}" class="form-control"
+                        ng-model="vm.selectedFilters.toCity" ng-options="item.id as item.name for item in vm.cities">
+                    <option value="">Select To City</option>
+                </select>
+            </div>
         </div>
+        <div class="row">
+            <div class="cell">Unit</div>
+            <div class="cell">
+                <select ng-class="{'invalid': vm.validationInfo.isSubmitted && !vm.selectedFilters.unit}" class="form-control"
+                        ng-model="vm.selectedFilters.unit" ng-options="item.id as item.name for item in vm.units">
+                    <option value="">Select Unit</option>
+                </select>
+            </div>
+            <div class="cell center-align">Terms</div>
+            <div class="cell">
+                <select ng-class="{'invalid': vm.validationInfo.isSubmitted && !vm.selectedFilters.term}" class="form-control"
+                        ng-model="vm.selectedFilters.term" ng-options="item.id as item.name for item in vm.terms">
+                    <option value="">Select Term</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="search-btn-container">
+        <input ng-click="vm.getSearchResult()" type="button" value="Search" class="btn btn-primary btn-search">
+    </div>
+
+    <div class="search-result-container">
+        <div ng-if="vm.searchResults && vm.searchResults.length == 0">No Result Found</div>
+        <div ng-if="vm.searchResults && vm.searchResults.length > 0">
+            result should show here.
+        </div>
+    </div>
+
+</div>

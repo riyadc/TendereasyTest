@@ -5,15 +5,44 @@
         .module('app.tendereasy')
         .controller('Search', Search);
 
-    Search.$inject = ['dataService'];
+    Search.$inject = ['dataService', 'identityService'];
 
-    function Search(dataService) {
+    function Search(dataService, identityService) {
         var vm = this;
-        vm.test = 'from vm';
+        //vm.userName = identityService.currentUser.userName;
+        vm.cities = [];
+        vm.units = [];
+        vm.terms = [];
+        vm.searchResults = null;
+        vm.selectedFilters = {fromCity : null, toCity : null,  term : null, unit : null };
+        vm.validationInfo = {isSubmitted: false  };
+        vm.getSearchResult = getSearchResult;
+
         activate();
 
         function activate() {
+            dataService.getCities().then(function(data){
+               vm.cities = data;
+            });
+            dataService.getUnits().then(function(data){
+                vm.units = data;
+            });
+            dataService.getTerms().then(function(data){
+                vm.terms = data;
+            });
+        }
 
+        function getSearchResult(){
+            vm.validationInfo.isSubmitted = true;
+            if(isValidFilter()){
+                dataService.getSearchResult().then(function(data){
+                    vm.searchResults = data;
+                });
+            }
+        }
+
+        function isValidFilter(){
+            return vm.selectedFilters.fromCity && vm.selectedFilters.toCity && vm.selectedFilters.term && vm.selectedFilters.unit;
         }
     }
 })();
