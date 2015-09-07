@@ -97,32 +97,32 @@
             var routes = [
                 {id: 1, termId: 1, unitId: 1, fromCityId: 1, toCityId: 2, totalCost: 220, numberOfDays: 22, path: 'City 1 - x - y - City 2', routeDetails: [
                     {
-                        path: 'City 1 to City x', numberOfDays: 2, cost: 100, vehicle: 'bus', startTime: '9 AM'
+                        path: 'City 1 to City x', numberOfDays: 2, cost: 100, vehicle: 'Road Transport', startTime: 'Containing every weekday departure'
                     },
                     {
-                        path: 'City x to city y', numberOfDays: 10, cost: 50, vehicle: 'bus', startTime: '9 AM'
+                        path: 'City x to city y', numberOfDays: 10, cost: 50, vehicle: 'Ocean Freight Low Steaming', startTime: '9 AM'
                     },
                     {
-                        path: 'City y to City 2', numberOfDays: 10, cost: 70, vehicle: 'bus', startTime: '9 AM'
+                        path: 'City y to City 2', numberOfDays: 10, cost: 70, vehicle: 'Road Transport', startTime: '9 AM'
                     }
                 ]},
                 {id: 2, termId: 2, unitId: 2, fromCityId: 3, toCityId: 4, totalCost: 220, numberOfDays: 22, path: 'City 3 - m - n - City 4', routeDetails: [
                     {
-                        path: 'City 3 to City m', numberOfDays: 2, cost: 100, vehicle: 'bus', startTime: '9 AM'
+                        path: 'City 3 to City m', numberOfDays: 2, cost: 100, vehicle: 'Road Transport', startTime: '9 AM'
                     },
                     {
-                        path: 'City m to city n', numberOfDays: 10, cost: 50, vehicle: 'bus', startTime: '9 AM'
+                        path: 'City m to city n', numberOfDays: 10, cost: 50, vehicle: 'Road Transport', startTime: '9 AM'
                     },
                     {
-                        path: 'City n to City 4', numberOfDays: 10, cost: 70, vehicle: 'bus', startTime: '9 AM'
+                        path: 'City n to City 4', numberOfDays: 10, cost: 70, vehicle: 'Road Transport', startTime: '9 AM'
                     }
                 ]},
                 {id: 3, termId: 1, unitId: 3, fromCityId: 4, toCityId: 5, totalCost: 150, numberOfDays: 12, path: 'City 4 - a - City 5', routeDetails: [
                     {
-                        path: 'City 4 to City a', numberOfDays: 2, cost: 100, vehicle: 'bus', startTime: '9 AM'
+                        path: 'City 4 to City a', numberOfDays: 2, cost: 100, vehicle: 'Road Transport', startTime: '9 AM'
                     },
                     {
-                        path: 'City a to city 5', numberOfDays: 10, cost: 50, vehicle: 'bus', startTime: '9 AM'
+                        path: 'City a to city 5', numberOfDays: 10, cost: 50, vehicle: 'Road Transport', startTime: '9 AM'
                     }
                 ]}
             ];

@@ -49,6 +49,10 @@
                     <div>Option 1 {{result.termName}}</div>
                     <div> {{result.path}} FROM {{result.totalCost}} EUR AND {{result.numberOfDays}} DAYS</div>
                 </div>
+                <div ng-repeat="detail in result.routeDetails" class="search-detail">
+                    <div>{{detail.numberOfDays}} days</div>
+                    <div>{{detail.vehicle}} {{detail.path}} {{detail.startTime}}</div>
+                </div>
             </div>
 
         </div>
