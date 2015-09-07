@@ -43,7 +43,7 @@
     <div class="search-result-container">
         <div ng-if="vm.searchResults && vm.searchResults.length == 0">No Result Found</div>
         <div ng-if="vm.searchResults && vm.searchResults.length > 0">
-            <div>Your Results</div>
+            <div class="your-result">Your Results</div>
             <div ng-repeat="result in vm.searchResults" class="search-item">
                 <div class="search-header">
                     <div>Option 1 {{result.termName}}</div>
