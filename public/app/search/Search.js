@@ -35,8 +35,9 @@
         function getSearchResult(){
             vm.validationInfo.isSubmitted = true;
             if(isValidFilter()){
-                dataService.getSearchResult().then(function(data){
+                dataService.getSearchResult(vm.selectedFilters).then(function(data){
                     vm.searchResults = data;
+                    console.log(data);
                 });
             }
         }
