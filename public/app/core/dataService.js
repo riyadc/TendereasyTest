@@ -17,7 +17,7 @@
 
         function checkLogin(userName, password) {
             var dfd = $q.defer();
-            if (userName == 'a' && password == 'a') {
+            if (userName == 'admin' && password == 'admin') {
                 dfd.resolve();
             } else {
                 dfd.reject('invalid login');
@@ -49,12 +49,12 @@
             var searchResult = $window._.filter(allRoutes, function (route) {
                 return route.fromCityId == filter.fromCity && route.toCityId == filter.toCity && route.termId == filter.term && route.unitId == filter.unit;
             });
-            populateUnitAndTermName(searchResult);
+            populateRouteResult(searchResult);
             dfd.resolve(searchResult);
             return dfd.promise;
         }
 
-        function populateUnitAndTermName(searchResult) {
+        function populateRouteResult(searchResult) {
             $window._.each(searchResult, function (res) {
                 res.termName = $window._.find(generateTerms(),function (term) {
                     return term.id == res.termId;
@@ -63,6 +63,8 @@
                 res.unitName = $window._.find(generateUnits(),function (unit) {
                     return unit.id == res.unitId;
                 }).name;
+
+                res.totalCost = $window._.reduce(res.routeDetails, function(memo, rDetail){ return memo + rDetail.cost; }, 0);
             });
         }
 
@@ -75,7 +77,7 @@
 
         function generateUnits() {
             return [
-                {id: 1, name: 'Unit 1'},
+                {id: 1, name: '40\'\' Container'},
                 {id: 2, name: 'Unit 2'},
                 {id: 3, name: 'Unit 3'},
                 {id: 4, name: 'Unit 4'},
@@ -95,31 +97,34 @@
 
         function generateRouteInfo() {
             var routes = [
-                {id: 1, termId: 1, unitId: 1, fromCityId: 1, toCityId: 2, totalCost: 220, numberOfDays: 22, path: 'City 1 - x - y - City 2', routeDetails: [
+                {id: 1, termId: 1, unitId: 1, fromCityId: 1, toCityId: 2, numberOfDays: 22, path: 'City 1 - x - y - City 2', routeDetails: [
                     {
-                        path: 'City 1 to City x', numberOfDays: 2, cost: 100, vehicle: 'Road Transport', startTime: 'Containing every weekday departure'
+                        path: 'City 1 to City x', numberOfDays: 2, cost: 100, vehicle: 'Road Transport', startTime: 'every weekday departure'
                     },
                     {
-                        path: 'City x to city y', numberOfDays: 10, cost: 50, vehicle: 'Ocean Freight Low Steaming', startTime: '9 AM'
+                        path: 'City x to city y', numberOfDays: 10, cost: 50, vehicle: 'Ocean Freight Low Steaming', startTime: 'every day departure'
                     },
                     {
-                        path: 'City y to City 2', numberOfDays: 10, cost: 70, vehicle: 'Road Transport', startTime: '9 AM'
+                        path: 'City y to City 2', numberOfDays: 10, cost: 70, vehicle: 'Road Transport', startTime: '9 AM every morning'
                     }
                 ]},
-                {id: 2, termId: 2, unitId: 2, fromCityId: 3, toCityId: 4, totalCost: 220, numberOfDays: 22, path: 'City 3 - m - n - City 4', routeDetails: [
+                {id: 2, termId: 1, unitId: 1, fromCityId: 1, toCityId: 2, numberOfDays: 30, path: 'City 1 - m - n - o - - City 2', routeDetails: [
                     {
-                        path: 'City 3 to City m', numberOfDays: 2, cost: 100, vehicle: 'Road Transport', startTime: '9 AM'
+                        path: 'City 1 to City m', numberOfDays: 15, cost: 100, vehicle: 'Road Transport', startTime: 'monday, tuesday and friday'
                     },
                     {
-                        path: 'City m to city n', numberOfDays: 10, cost: 50, vehicle: 'Road Transport', startTime: '9 AM'
+                        path: 'City m to city n', numberOfDays: 5, cost: 100, vehicle: 'Road Transport', startTime: 'every weekday departure'
                     },
                     {
-                        path: 'City n to City 4', numberOfDays: 10, cost: 70, vehicle: 'Road Transport', startTime: '9 AM'
+                        path: 'City n to City o', numberOfDays: 10, cost: 100, vehicle: 'Road Transport', startTime: 'every weekday departure'
+                    },
+                    {
+                        path: 'City o to City 2', numberOfDays: 10, cost: 20, vehicle: 'Road Transport', startTime: ' every weekday departure'
                     }
                 ]},
-                {id: 3, termId: 1, unitId: 3, fromCityId: 4, toCityId: 5, totalCost: 150, numberOfDays: 12, path: 'City 4 - a - City 5', routeDetails: [
+                {id: 3, termId: 1, unitId: 3, fromCityId: 4, toCityId: 5, numberOfDays: 12, path: 'City 4 - a - City 5', routeDetails: [
                     {
-                        path: 'City 4 to City a', numberOfDays: 2, cost: 100, vehicle: 'Road Transport', startTime: '9 AM'
+                        path: 'City 4 to City a', numberOfDays: 2, cost: 100, vehicle: 'Road Transport', startTime: '9 AM every morning'
                     },
                     {
                         path: 'City a to city 5', numberOfDays: 10, cost: 50, vehicle: 'Road Transport', startTime: '9 AM'

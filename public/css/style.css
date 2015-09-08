@@ -1,8 +1,9 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto:400);
+
 body {
-    background-color:#fff;
+    background-color: #fff;
     -webkit-font-smoothing: antialiased;
-    font: normal 14px Roboto,arial,sans-serif;
+    font: normal 14px Roboto, arial, sans-serif;
 }
 
 .container {
@@ -17,15 +18,15 @@ body {
     padding-left: 20px;
     padding-right: 20px;
     border-radius: 15px;
-    border-color:#d2d2d2;
+    border-color: #d2d2d2;
     border-width: 5px;
-    box-shadow:0 1px 0 #cfcfcf;
+    box-shadow: 0 1px 0 #cfcfcf;
 }
 
 h4 {
-    border:0 solid #fff;
-    border-bottom-width:1px;
-    padding-bottom:10px;
+    border: 0 solid #fff;
+    border-bottom-width: 1px;
+    padding-bottom: 10px;
     text-align: center;
 }
 
@@ -36,72 +37,106 @@ h4 {
 .wrapper {
     text-align: center;
 }
-.search-filter{
+
+.search-filter {
     display: table;
     width: 60%;
     float: left;
 }
-.search-container{
+
+.search-container {
 
 }
-.search-filter .row{
+
+.search-filter .row {
     display: table-row;
     height: 60px;
 }
 
-.search-filter .cell{
+.search-filter .cell {
     display: table-cell;
     width: 200px;
     vertical-align: middle;
 }
-.invalid{
+
+.invalid {
     border: 1px solid red;
 }
-.error-msg{
+
+.error-msg {
     color: red;
 }
-.search-container{
+
+.search-container {
     color: #1880A8;
     margin-left: auto;
     margin-right: auto;
     width: 900px;
     padding: 50px 0;
 }
-.user-info{
+
+.user-info {
     margin: 20px 0;
     text-transform: uppercase;
     font: 18px;
     font-weight: bold;
 }
-select.form-control{
+
+select.form-control {
     width: 200px;
 }
-.center-align{
+
+.center-align {
     text-align: center;
 }
-.search-btn-container{
+
+.search-btn-container {
     width: 40%;
     float: left;
     padding-left: 80px;
     padding-top: 45px;
 }
-.btn-search{
+
+.btn-search {
     width: 150px;
 }
-.search-result-container{
+
+.search-result-container {
     clear: both;
     padding-top: 20px;
     text-transform: uppercase;
 }
-.your-result{
+
+.your-result {
     text-align: center;
     background-color: #1880A8;
     color: #000000;
     height: 40px;
     padding-top: 10px;
 }
-.search-header{
+
+.search-header {
     margin: 10px 0;
     border: 5px solid #000000;
     padding: 5px;
+}
+
+.search-detail {
+    border-bottom: 1px dashed #000000;
+    margin-bottom: 20px;
+}
+.search-item .search-detail:nth-last-child(2){
+    border-bottom: none;
+}
+.detail-cost {
+    text-align: right;
+}
+
+.total-cost {
+    text-align: right;
+}
+
+.btn-total-cost {
+    width: 200px;
+    color: #000000;
 }

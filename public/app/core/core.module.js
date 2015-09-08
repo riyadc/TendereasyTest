@@ -6,8 +6,7 @@
     angular.module('app.tendereasy').config(function($routeProvider, $locationProvider) {
         var routeRoleChecks = {
             user: {auth: function(identityService) {
-                //return identityService.isAuthenticated()
-                return true;
+                return identityService.isAuthenticated();
             }}
         }
         $routeProvider

@@ -1,7 +1,7 @@
 <div class="search-container">
-    <div class="user-info">Logged as: </div>
+    <div class="user-info">Logged as: {{vm.userName}} </div>
 
-    <div class="search-filter">
+    <section class="search-filter">
         <div class="row">
             <div class="cell">From</div>
             <div class="cell">
@@ -34,28 +34,32 @@
                 </select>
             </div>
         </div>
-    </div>
+    </section>
 
     <div class="search-btn-container">
         <input ng-click="vm.getSearchResult()" type="button" value="Search" class="btn btn-primary btn-search">
     </div>
 
-    <div class="search-result-container">
+    <section class="search-result-container">
         <div ng-if="vm.searchResults && vm.searchResults.length == 0">No Result Found</div>
         <div ng-if="vm.searchResults && vm.searchResults.length > 0">
             <div class="your-result">Your Results</div>
             <div ng-repeat="result in vm.searchResults" class="search-item">
                 <div class="search-header">
-                    <div>Option 1 {{result.termName}}</div>
+                    <div>Option {{$index + 1}} {{result.termName}}</div>
                     <div> {{result.path}} FROM {{result.totalCost}} EUR AND {{result.numberOfDays}} DAYS</div>
                 </div>
                 <div ng-repeat="detail in result.routeDetails" class="search-detail">
                     <div>{{detail.numberOfDays}} days</div>
-                    <div>{{detail.vehicle}} {{detail.path}} {{detail.startTime}}</div>
+                    <div>{{detail.vehicle}} {{detail.path}} {{result.unitName}} {{detail.startTime}}</div>
+                    <div class="detail-cost">€{{detail.cost}}</div>
+                </div>
+                <div class="total-cost">
+                    <button class="btn btn-primary btn-total-cost">TOTAL {{result.totalCost}}€ BOOK</button>
                 </div>
             </div>
 
         </div>
-    </div>
+    </section>
 
 </div>

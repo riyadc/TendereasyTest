@@ -10,6 +10,7 @@
     function Search(dataService, identityService) {
         var vm = this;
         //vm.userName = identityService.currentUser.userName;
+        vm.userName = 'x';
         vm.cities = [];
         vm.units = [];
         vm.terms = [];
