@@ -9,8 +9,7 @@
 
     function Search(dataService, identityService) {
         var vm = this;
-        //vm.userName = identityService.currentUser.userName;
-        vm.userName = 'x';
+        vm.userName = identityService.currentUser.userName;
         vm.cities = [];
         vm.units = [];
         vm.terms = [];
